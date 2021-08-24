@@ -19,6 +19,7 @@ namespace Calculator
 
         private void btnClearAll_Click(object sender, EventArgs e)
         {
+            prevOperation = Operation.None;
             txtDisplay.Clear();
         }
 
@@ -26,6 +27,11 @@ namespace Calculator
         {
             if(txtDisplay.Text.Length > 0)
             {
+                double d;
+                if(!double.TryParse(txtDisplay.Text[txtDisplay.Text.Length - 1].ToString(), out d))
+                {
+                    prevOperation = Operation.None;
+                }
                 txtDisplay.Text = txtDisplay.Text.Remove(txtDisplay.Text.Length - 1, 1);
             }
         }
@@ -37,37 +43,33 @@ namespace Calculator
 
         private void btnDiv_Click(object sender, EventArgs e)
         {
-            if (prevOperation == Operation.None)
-                prevOperation = Operation.Div;
-            else
+            if (prevOperation != Operation.None)
                 PerformCalculation(prevOperation);
+            prevOperation = Operation.Div;          
             txtDisplay.Text += (sender as Button).Text;
         }
 
         private void btnMul_Click(object sender, EventArgs e)
         {
-            if (prevOperation == Operation.None)
-                prevOperation = Operation.Mul;
-            else
+            if (prevOperation != Operation.None)
                 PerformCalculation(prevOperation);
+            prevOperation = Operation.Mul;
             txtDisplay.Text += (sender as Button).Text;
         }
 
         private void btnSub_Click(object sender, EventArgs e)
         {
-            if (prevOperation == Operation.None)
-                prevOperation = Operation.Sub;
-            else
+            if (prevOperation != Operation.None)
                 PerformCalculation(prevOperation);
+            prevOperation = Operation.Sub;     
             txtDisplay.Text += (sender as Button).Text;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (prevOperation == Operation.None)
-                prevOperation = Operation.Add;
-            else
+            if (prevOperation != Operation.None)
                 PerformCalculation(prevOperation);
+            prevOperation = Operation.Add;
             txtDisplay.Text += (sender as Button).Text;
         }
 
@@ -93,7 +95,7 @@ namespace Calculator
                     }
                     break;
                 case Operation.Mul:
-                    lstNums = txtDisplay.Text.Split('*').Select(double.Parse).ToList();
+                    lstNums = txtDisplay.Text.Split('x').Select(double.Parse).ToList();
                     txtDisplay.Text = (lstNums[0] * lstNums[1]).ToString();
                     break;
                 case Operation.Sub:
@@ -109,7 +111,14 @@ namespace Calculator
 
         private void btnRes_Click(object sender, EventArgs e)
         {
-
+            if (prevOperation == Operation.None)
+                return;
+            else
+            {
+                PerformCalculation(prevOperation);
+                prevOperation = Operation.None;
+            }
+               
         }
 
         enum Operation
