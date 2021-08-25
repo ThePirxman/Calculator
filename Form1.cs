@@ -15,6 +15,7 @@ namespace Calculator
         public MainForm()
         {
             InitializeComponent();
+            //btnErase.Text = "\u232B";
         }
 
         private void btnClearAll_Click(object sender, EventArgs e)
@@ -25,7 +26,7 @@ namespace Calculator
 
         private void btnErase_Click(object sender, EventArgs e)
         {
-            if(txtDisplay.Text.Length > 0)
+            if(txtDisplay.Text.Length > 0 && txtDisplay.Text != "Error")
             {
                 double d;
                 if(!double.TryParse(txtDisplay.Text[txtDisplay.Text.Length - 1].ToString(), out d))
@@ -38,61 +39,72 @@ namespace Calculator
 
         private void btnNum_Click(object sender, EventArgs e)
         {
-            txtDisplay.Text += (sender as Button).Text;
+            if(txtDisplay.Text != "Error")
+                txtDisplay.Text += (sender as Button).Text;
         }
 
         private void btnDiv_Click(object sender, EventArgs e)
         {
-            if (prevOperation != Operation.None)
-                PerformCalculation(prevOperation);
-            prevOperation = Operation.Div;          
-            txtDisplay.Text += (sender as Button).Text;
+            if(txtDisplay.Text.Length > 0 && txtDisplay.Text != "Error")
+            {
+                if (prevOperation != Operation.None)
+                    PerformCalculation(prevOperation);
+                prevOperation = Operation.Div;
+                txtDisplay.Text += (sender as Button).Text;
+            }
+            
         }
 
         private void btnMul_Click(object sender, EventArgs e)
         {
-            if (prevOperation != Operation.None)
-                PerformCalculation(prevOperation);
-            prevOperation = Operation.Mul;
-            txtDisplay.Text += (sender as Button).Text;
+            if (txtDisplay.Text.Length > 0 && txtDisplay.Text != "Error")
+            {
+                if (prevOperation != Operation.None)
+                    PerformCalculation(prevOperation);
+                prevOperation = Operation.Mul;
+                txtDisplay.Text += (sender as Button).Text;
+            }
+                
         }
 
         private void btnSub_Click(object sender, EventArgs e)
         {
-            if (prevOperation != Operation.None)
-                PerformCalculation(prevOperation);
-            prevOperation = Operation.Sub;     
-            txtDisplay.Text += (sender as Button).Text;
+            if (txtDisplay.Text.Length > 0 && txtDisplay.Text != "Error")
+            {
+                if (prevOperation != Operation.None)
+                    PerformCalculation(prevOperation);
+                prevOperation = Operation.Sub;
+                txtDisplay.Text += (sender as Button).Text;
+            }
+                
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (prevOperation != Operation.None)
-                PerformCalculation(prevOperation);
-            prevOperation = Operation.Add;
-            txtDisplay.Text += (sender as Button).Text;
+            if (txtDisplay.Text.Length > 0 && txtDisplay.Text != "Error")
+            {
+                if (prevOperation != Operation.None)
+                    PerformCalculation(prevOperation);
+                prevOperation = Operation.Add;
+                txtDisplay.Text += (sender as Button).Text;
+            }
         }
 
         List<double> lstNums = new List<double>();
         private void PerformCalculation(Operation prevOperation)
         {
-            switch (prevOperation)
-            {
+                switch (prevOperation)
+                {
                 case Operation.Add:
                     lstNums = txtDisplay.Text.Split('+').Select(double.Parse).ToList();
                     txtDisplay.Text = (lstNums[0] + lstNums[1]).ToString();
                     break;
                 case Operation.Div:
-                    try
-                    {
-                        lstNums = txtDisplay.Text.Split('/').Select(double.Parse).ToList();
+                    lstNums = txtDisplay.Text.Split('/').Select(double.Parse).ToList();
+                    if (!double.IsInfinity(lstNums[0] / lstNums[1]))
                         txtDisplay.Text = (lstNums[0] / lstNums[1]).ToString();
-                    }
-                    catch (DivideByZeroException)
-                    {
-
+                    else
                         txtDisplay.Text = "Error";
-                    }
                     break;
                 case Operation.Mul:
                     lstNums = txtDisplay.Text.Split('x').Select(double.Parse).ToList();

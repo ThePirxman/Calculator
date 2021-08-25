@@ -29,8 +29,7 @@ namespace Calculator
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnLayout = new System.Windows.Forms.TableLayoutPanel();
             this.txtDisplay = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btnErase = new System.Windows.Forms.Button();
@@ -50,24 +49,24 @@ namespace Calculator
             this.btn7 = new System.Windows.Forms.Button();
             this.btnDiv = new System.Windows.Forms.Button();
             this.btnClearAll = new System.Windows.Forms.Button();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.btnLayout.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // btnLayout
             // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.txtDisplay, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(348, 472);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.btnLayout.ColumnCount = 1;
+            this.btnLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.btnLayout.Controls.Add(this.txtDisplay, 0, 0);
+            this.btnLayout.Controls.Add(this.tableLayoutPanel2, 0, 1);
+            this.btnLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnLayout.Location = new System.Drawing.Point(0, 0);
+            this.btnLayout.Name = "btnLayout";
+            this.btnLayout.RowCount = 2;
+            this.btnLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.btnLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85F));
+            this.btnLayout.Size = new System.Drawing.Size(343, 472);
+            this.btnLayout.TabIndex = 0;
             // 
             // txtDisplay
             // 
@@ -79,7 +78,7 @@ namespace Calculator
             this.txtDisplay.Name = "txtDisplay";
             this.txtDisplay.ReadOnly = true;
             this.txtDisplay.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtDisplay.Size = new System.Drawing.Size(342, 64);
+            this.txtDisplay.Size = new System.Drawing.Size(337, 64);
             this.txtDisplay.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -116,21 +115,19 @@ namespace Calculator
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(342, 396);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(337, 396);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // btnErase
             // 
-            this.btnErase.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnErase.BackgroundImage")));
-            this.btnErase.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnErase.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnErase.FlatAppearance.BorderSize = 0;
-            this.btnErase.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnErase.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnErase.Location = new System.Drawing.Point(173, 3);
+            this.btnErase.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnErase.Location = new System.Drawing.Point(171, 3);
             this.btnErase.Name = "btnErase";
-            this.btnErase.Size = new System.Drawing.Size(79, 73);
+            this.btnErase.Size = new System.Drawing.Size(78, 73);
             this.btnErase.TabIndex = 20;
+            this.btnErase.Text = "⌫";
             this.btnErase.UseVisualStyleBackColor = true;
             this.btnErase.Click += new System.EventHandler(this.btnErase_Click);
             // 
@@ -139,9 +136,9 @@ namespace Calculator
             this.btnRes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnRes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnRes.Location = new System.Drawing.Point(258, 319);
+            this.btnRes.Location = new System.Drawing.Point(255, 319);
             this.btnRes.Name = "btnRes";
-            this.btnRes.Size = new System.Drawing.Size(81, 74);
+            this.btnRes.Size = new System.Drawing.Size(79, 74);
             this.btnRes.TabIndex = 19;
             this.btnRes.Text = "=";
             this.btnRes.UseVisualStyleBackColor = false;
@@ -151,9 +148,9 @@ namespace Calculator
             // 
             this.btn0.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn0.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn0.Location = new System.Drawing.Point(88, 319);
+            this.btn0.Location = new System.Drawing.Point(87, 319);
             this.btn0.Name = "btn0";
-            this.btn0.Size = new System.Drawing.Size(79, 74);
+            this.btn0.Size = new System.Drawing.Size(78, 74);
             this.btn0.TabIndex = 17;
             this.btn0.Text = "0";
             this.btn0.UseVisualStyleBackColor = true;
@@ -163,9 +160,9 @@ namespace Calculator
             // 
             this.btnAdd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnAdd.Location = new System.Drawing.Point(258, 240);
+            this.btnAdd.Location = new System.Drawing.Point(255, 240);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(81, 73);
+            this.btnAdd.Size = new System.Drawing.Size(79, 73);
             this.btnAdd.TabIndex = 15;
             this.btnAdd.Text = "+";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -175,9 +172,9 @@ namespace Calculator
             // 
             this.btn3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn3.Location = new System.Drawing.Point(173, 240);
+            this.btn3.Location = new System.Drawing.Point(171, 240);
             this.btn3.Name = "btn3";
-            this.btn3.Size = new System.Drawing.Size(79, 73);
+            this.btn3.Size = new System.Drawing.Size(78, 73);
             this.btn3.TabIndex = 14;
             this.btn3.Text = "3";
             this.btn3.UseVisualStyleBackColor = true;
@@ -187,9 +184,9 @@ namespace Calculator
             // 
             this.btn2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn2.Location = new System.Drawing.Point(88, 240);
+            this.btn2.Location = new System.Drawing.Point(87, 240);
             this.btn2.Name = "btn2";
-            this.btn2.Size = new System.Drawing.Size(79, 73);
+            this.btn2.Size = new System.Drawing.Size(78, 73);
             this.btn2.TabIndex = 13;
             this.btn2.Text = "2";
             this.btn2.UseVisualStyleBackColor = true;
@@ -201,7 +198,7 @@ namespace Calculator
             this.btn1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btn1.Location = new System.Drawing.Point(3, 240);
             this.btn1.Name = "btn1";
-            this.btn1.Size = new System.Drawing.Size(79, 73);
+            this.btn1.Size = new System.Drawing.Size(78, 73);
             this.btn1.TabIndex = 12;
             this.btn1.Text = "1";
             this.btn1.UseVisualStyleBackColor = true;
@@ -211,9 +208,9 @@ namespace Calculator
             // 
             this.btnSub.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnSub.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnSub.Location = new System.Drawing.Point(258, 161);
+            this.btnSub.Location = new System.Drawing.Point(255, 161);
             this.btnSub.Name = "btnSub";
-            this.btnSub.Size = new System.Drawing.Size(81, 73);
+            this.btnSub.Size = new System.Drawing.Size(79, 73);
             this.btnSub.TabIndex = 11;
             this.btnSub.Text = "-";
             this.btnSub.UseVisualStyleBackColor = true;
@@ -223,9 +220,9 @@ namespace Calculator
             // 
             this.btn6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn6.Location = new System.Drawing.Point(173, 161);
+            this.btn6.Location = new System.Drawing.Point(171, 161);
             this.btn6.Name = "btn6";
-            this.btn6.Size = new System.Drawing.Size(79, 73);
+            this.btn6.Size = new System.Drawing.Size(78, 73);
             this.btn6.TabIndex = 10;
             this.btn6.Text = "6";
             this.btn6.UseVisualStyleBackColor = true;
@@ -235,9 +232,9 @@ namespace Calculator
             // 
             this.btn5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn5.Location = new System.Drawing.Point(88, 161);
+            this.btn5.Location = new System.Drawing.Point(87, 161);
             this.btn5.Name = "btn5";
-            this.btn5.Size = new System.Drawing.Size(79, 73);
+            this.btn5.Size = new System.Drawing.Size(78, 73);
             this.btn5.TabIndex = 9;
             this.btn5.Text = "5";
             this.btn5.UseVisualStyleBackColor = true;
@@ -249,7 +246,7 @@ namespace Calculator
             this.btn4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btn4.Location = new System.Drawing.Point(3, 161);
             this.btn4.Name = "btn4";
-            this.btn4.Size = new System.Drawing.Size(79, 73);
+            this.btn4.Size = new System.Drawing.Size(78, 73);
             this.btn4.TabIndex = 8;
             this.btn4.Text = "4";
             this.btn4.UseVisualStyleBackColor = true;
@@ -259,9 +256,9 @@ namespace Calculator
             // 
             this.btnMul.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnMul.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnMul.Location = new System.Drawing.Point(258, 82);
+            this.btnMul.Location = new System.Drawing.Point(255, 82);
             this.btnMul.Name = "btnMul";
-            this.btnMul.Size = new System.Drawing.Size(81, 73);
+            this.btnMul.Size = new System.Drawing.Size(79, 73);
             this.btnMul.TabIndex = 7;
             this.btnMul.Text = "x";
             this.btnMul.UseVisualStyleBackColor = true;
@@ -271,9 +268,9 @@ namespace Calculator
             // 
             this.btn9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn9.Location = new System.Drawing.Point(173, 82);
+            this.btn9.Location = new System.Drawing.Point(171, 82);
             this.btn9.Name = "btn9";
-            this.btn9.Size = new System.Drawing.Size(79, 73);
+            this.btn9.Size = new System.Drawing.Size(78, 73);
             this.btn9.TabIndex = 6;
             this.btn9.Text = "9";
             this.btn9.UseVisualStyleBackColor = true;
@@ -283,9 +280,9 @@ namespace Calculator
             // 
             this.btn8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn8.Location = new System.Drawing.Point(88, 82);
+            this.btn8.Location = new System.Drawing.Point(87, 82);
             this.btn8.Name = "btn8";
-            this.btn8.Size = new System.Drawing.Size(79, 73);
+            this.btn8.Size = new System.Drawing.Size(78, 73);
             this.btn8.TabIndex = 5;
             this.btn8.Text = "8";
             this.btn8.UseVisualStyleBackColor = true;
@@ -297,7 +294,7 @@ namespace Calculator
             this.btn7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btn7.Location = new System.Drawing.Point(3, 82);
             this.btn7.Name = "btn7";
-            this.btn7.Size = new System.Drawing.Size(79, 73);
+            this.btn7.Size = new System.Drawing.Size(78, 73);
             this.btn7.TabIndex = 4;
             this.btn7.Text = "7";
             this.btn7.UseVisualStyleBackColor = true;
@@ -307,9 +304,9 @@ namespace Calculator
             // 
             this.btnDiv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnDiv.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnDiv.Location = new System.Drawing.Point(258, 3);
+            this.btnDiv.Location = new System.Drawing.Point(255, 3);
             this.btnDiv.Name = "btnDiv";
-            this.btnDiv.Size = new System.Drawing.Size(81, 73);
+            this.btnDiv.Size = new System.Drawing.Size(79, 73);
             this.btnDiv.TabIndex = 3;
             this.btnDiv.Text = "/";
             this.btnDiv.UseVisualStyleBackColor = true;
@@ -322,7 +319,7 @@ namespace Calculator
             this.btnClearAll.ForeColor = System.Drawing.Color.Red;
             this.btnClearAll.Location = new System.Drawing.Point(3, 3);
             this.btnClearAll.Name = "btnClearAll";
-            this.btnClearAll.Size = new System.Drawing.Size(79, 73);
+            this.btnClearAll.Size = new System.Drawing.Size(78, 73);
             this.btnClearAll.TabIndex = 0;
             this.btnClearAll.Text = "CA";
             this.btnClearAll.UseVisualStyleBackColor = true;
@@ -332,14 +329,14 @@ namespace Calculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(348, 472);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.ClientSize = new System.Drawing.Size(343, 472);
+            this.Controls.Add(this.btnLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "Calculator";
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            this.btnLayout.ResumeLayout(false);
+            this.btnLayout.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -347,7 +344,7 @@ namespace Calculator
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel btnLayout;
         private System.Windows.Forms.TextBox txtDisplay;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button btnRes;
